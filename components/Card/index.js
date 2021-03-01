@@ -20,7 +20,7 @@ const CardComponent = ({
   isOffer = false,
 }) => {
   return (
-    <Col xs={12} sm={12} md={6} lg={3} className="mb-4">
+    <Col xs={12} sm={12} md={isOffer ? 12:6} lg={isOffer ? 12:3} className="mb-4">
       <Card className="h-100">
         <CardImg
           top

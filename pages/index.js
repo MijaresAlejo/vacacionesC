@@ -2,7 +2,6 @@ import Header from "../components/Header";
 import Carousel from "../components/Carousel";
 import Section from "../components/Section";
 import Footer from "../components/Footer";
-
 export default function Home() {
   // Aqui se hace la petición al endpoint para obtener tarjetas y se mandan al section
   const bestOffers = {

@@ -1,13 +1,24 @@
 import { Container } from "reactstrap";
+import Slider from '../../components/Slider';
 export default function TourDescription(props) {
-  const { tourTitle, tourDescription, tourVideo } = props;
+  const { tourTitle, tourDescription, tourVideo, gallery=[] } = props;
   return (
-    <Container>
-      <center>
+    <Container className="pt-4">
+
+      <center className="mb-4">
         <h1>{tourTitle}</h1>
       </center>
+      {/* Galeria inicia */}
+      <Slider fluid={true} adaptiveHeight={true}>
+        {gallery.map((image,index)=><img key={index+image} src={image}/>)}
+      </Slider>
+      {/* Galeria termina */}
 
-      <p>{tourDescription}</p>
+      {/* Descripcion inicia */}
+      <p className="mt-4">{tourDescription}</p>
+      {/* Descripcion termina */}
+
+      {/* Video inicia */}
       <center>
         <iframe
           style={{ width: "100%", height: "500px", borderRadius: "25px" }}
@@ -17,8 +28,8 @@ export default function TourDescription(props) {
           allowFullScreen
         ></iframe>
       </center>
+      {/* Video termina */}
 
-      {/* slick here */}
     </Container>
   );
 }

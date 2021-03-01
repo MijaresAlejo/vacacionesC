@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Container, CardGroup } from "reactstrap";
-import {getAllPackages, getPopularTours} from '../../services/api'
+import { getAllPackages, getPopularTours } from '../../services/api'
 import CardComponent from "../Card";
+import Slider from "../Slider";
 // import miImagen from '../../images/miimagen.png'
 class Section extends Component {
   constructor(props) {
@@ -12,14 +13,14 @@ class Section extends Component {
   }
   async componentDidMount() {
     const { endpoint } = this.props;
-    switch(endpoint) {
+    switch (endpoint) {
       case 'bestOffers':
-        let bestOffers = await getAllPackages() 
-        this.setState({cards:bestOffers})
+        let bestOffers = await getAllPackages()
+        this.setState({ cards: bestOffers })
         break;
       case 'popularTours':
-        let popularTours = await getPopularTours() 
-        this.setState({cards:popularTours})
+        let popularTours = await getPopularTours()
+        this.setState({ cards: popularTours })
         break;
     }
     /*
@@ -124,16 +125,30 @@ class Section extends Component {
           <h2>{sectionTitle}</h2>
           <p>{sectionDescription}</p>
         </div>
-        <CardGroup>
+        {isOffer ? <Slider
+          slidesToShow={4}
+          fluid={false}
+        >
           {cards.map((Card) => (
-                <CardComponent
-                  key={Card.url}
-                  isOffer={isOffer}
-                  {...Card}
-                />
-              ))
+            <CardComponent
+              key={Card.url}
+              isOffer={isOffer}
+              {...Card}
+            />
+          ))
+          }
+        </Slider> :
+          <CardGroup>
+            {cards.map((Card) => (
+              <CardComponent
+                key={Card.url}
+                isOffer={isOffer}
+                {...Card}
+              />
+            ))
             }
-        </CardGroup>
+          </CardGroup>
+        }
       </Container>
     );
   }

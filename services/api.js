@@ -23,7 +23,15 @@ async function getPopularTours(){
   const {data : {message}} = await axios.get('promotions/populartours/en')
   return message;
 }
-
+/*
+generic function by parameter (No funciona :v)
+async function getHotels(id){
+  // setup default headers
+  await getSignature()
+  const {data : {message}} = await axios.get('hotels/'+id)
+  return message;
+}
+*/
 export {
   getAllPackages,
   getPopularTours

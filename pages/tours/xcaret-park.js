@@ -3,7 +3,6 @@ import Footer from "../../components/Footer";
 import TourDescription from "../../components/TourDescription";
 import Entry from "../../components/Entry";
 import { Container, Row, Col } from "reactstrap";
-
 const DescriptionObj = {
   tourTitle: "Parque Xcaret",
   tourDescription:
@@ -76,6 +75,13 @@ const DescriptionObj = {
       ],
       quantity: 5599.6,
     },
+  ],
+  // Ver en la carpeta /public 
+  gallery: [
+    '/img/tours/parque/parque.jpg',
+    '/img/tours/parque/parque2.jpg',
+    '/img/tours/parque/parque3.jpg',
+    '/img/tours/parque/parque4.jpg',
   ],
 };
 export default function XcaretPark() {
