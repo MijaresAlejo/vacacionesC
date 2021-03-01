@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container, CardGroup } from "reactstrap";
-import { getAllPackages, getPopularTours } from "../../services/api";
+import axios from "axios";
 import CardComponent from "../Card";
 // import miImagen from '../../images/miimagen.png'
 class Section extends Component {
@@ -8,72 +8,68 @@ class Section extends Component {
     super(props);
     this.state = {
       cards: [],
+      cardsOffers: [],
     };
   }
-  async componentDidMount() {
-    const { endpoint } = this.props;
-    switch (endpoint) {
-      case "bestOffers":
-        let bestOffers = await getAllPackages();
-        this.setState({ cards: bestOffers });
-        break;
-      case "popularTours":
-        let popularTours = await getPopularTours();
-        this.setState({ cards: popularTours });
-        break;
-    }
-    /*
+  componentDidMount() {
+    const { endpoint } = ""; //this.props;
+
+    //axios.get(`https://google.com/${endpoint}`).then((res)=>{
+    // obtienes lo de la api  data retorne [{tours}]
+    // const {data} = res;
+    // this.setState({cards:data})
+
     this.setState({
       cards: [
         {
           id: 1,
-          name: "Parque Xcaret",
+          tourTitle: "Parque Xcaret",
           url: "/tours/parque-xcaret",
-          image: "/img/tours/xcaret.jpg",
+          img: "/img/tours/xcaret.jpg",
         }, // img: miImagen
         {
           id: 2,
-          name: "Isla Mujeres",
+          tourTitle: "Isla Mujeres",
           url: "/tours/isla-mujeres",
-          image: "/img/tours/isla.jpg",
+          img: "/img/tours/isla.jpg",
         },
         {
           id: 3,
-          name: "Parque Xel-ha",
+          tourTitle: "Parque Xel-ha",
           url: "/tours/parque-xel-ha",
-          image: "/img/tours/xelha.jpg",
+          img: "/img/tours/xelha.jpg",
         },
         {
           id: 4,
-          name: "Xplort Fuego",
+          tourTitle: "Xplort Fuego",
           url: "/tours/xplort-fuego",
-          image: "/img/tours/xplor.jpg",
+          img: "/img/tours/xplor.jpg",
         },
         {
           id: 5,
-          name: "Tour Xichen",
+          tourTitle: "Tour Xichen",
           url: "/tours/xichen",
-          image: "/img/tours/xichen.jpg",
+          img: "/img/tours/xichen.jpg",
         },
         {
           id: 6,
-          name: "Chichén Itzá",
+          tourTitle: "Chichén Itzá",
           url: "/tours/chichén Itzá",
-          image: "/img/tours/xelha.jpg",
+          img: "/img/tours/xelha.jpg",
         },
         {
           id: 7,
-          name: "Xplort Fuego",
+          tourTitle: "Xplort Fuego",
           url: "/tours/xplort-fuego",
-          image: "/img/tours/xplor.jpg",
+          img: "/img/tours/xplor.jpg",
         },
         {
           id: 8,
-          name: "Xplort Fuego",
+          tourTitle: "Xplort Fuego",
           url: "/tours/xplort-fuego",
-          image: "/img/tours/xplor.jpg",
+          img: "/img/tours/xplor.jpg",
         },
-      ], 
+      ],
       cardsOffers: [
         {
           id: 1,
@@ -109,7 +105,7 @@ class Section extends Component {
         },
       ],
     });
-    */
+    //})
   }
   render() {
     const {
@@ -117,7 +113,7 @@ class Section extends Component {
       sectionDescription = "",
       isOffer = false,
     } = this.props;
-    const { cards } = this.state;
+    const { cards, cardsOffers } = this.state;
     return (
       <Container className="mt-4">
         <div className="text-center">
@@ -125,9 +121,30 @@ class Section extends Component {
           <p>{sectionDescription}</p>
         </div>
         <CardGroup>
-          {cards.map((Card) => (
-            <CardComponent key={Card.url} isOffer={isOffer} {...Card} />
-          ))}
+          {!isOffer
+            ? cards.map((Card) => (
+                <CardComponent
+                  key={Card.id}
+                  url={Card.url}
+                  tourTitle={Card.tourTitle}
+                  tourDescription={Card.tourDescription}
+                  img={Card.img}
+                />
+              ))
+            : ""}
+
+          {isOffer
+            ? cardsOffers.map((Card) => (
+                <CardComponent
+                  key={Card.id}
+                  url={Card.url}
+                  tourTitle={Card.tourTitle}
+                  tourDescription={Card.tourDescription}
+                  img={Card.img}
+                  isOffer={true}
+                />
+              ))
+            : ""}
         </CardGroup>
       </Container>
     );
