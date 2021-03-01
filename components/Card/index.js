@@ -11,11 +11,9 @@ import {
 import Link from "next/link";
 
 const CardComponent = ({
-  name,
-  include,
-  city,
+  tourTitle,
+  tourDescription,
   img,
-  image,
   url,
   isOffer = false,
 }) => {
@@ -25,16 +23,20 @@ const CardComponent = ({
         <CardImg
           top
           width="100%"
-          src={isOffer ? image : img}
+          src={img}
           alt="Card image cap"
           style={styles.image}
         />
         <CardBody>
-          <CardTitle tag="h5">{name}</CardTitle>
-          <CardText style={{ textAlign: "justify" }}>
-            {isOffer ? include : city}
-          </CardText>
-          <Link href={`${isOffer ? "/ofertas" : "/tours"}/${url}`}>
+          <CardTitle tag="h5">{tourTitle}</CardTitle>
+          {isOffer ? (
+            <CardText style={{ textAlign: "justify" }}>
+              {tourDescription}
+            </CardText>
+          ) : (
+            ""
+          )}
+          <Link href={url}>
             <Button color="danger">
               <b>Informacion</b>
             </Button>
