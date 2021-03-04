@@ -45,6 +45,7 @@ class AvailabilityInput extends Component {
   }
 
   render() {
+    const {price} = this.props;
     return (
       <>
         <Row className="pl-2 pr-2 pt-2">
@@ -134,7 +135,7 @@ class AvailabilityInput extends Component {
         <Row className="pl-2 pr-2 pb-4">
           <Col xs={12} md={12} lg={12}>
             <Button color="info" className="col-sm-10 offset-sm-1">
-              Reservar
+              Reservar {price>0 ? '$'+Number(price).toFixed(2):''}
             </Button>
           </Col>
         </Row>

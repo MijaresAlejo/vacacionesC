@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import TourDescription from "../../components/TourDescription";
@@ -5,6 +6,7 @@ import Entry from "../../components/Entry";
 import { Container, Row, Col } from "reactstrap";
 // Detector de dispositivos
 import useDeviceDetect from "../../components/DetectDevice";
+import axios from 'axios';
 
 const DescriptionObj = {
   tourTitle: "Parque Xcaret",
@@ -21,7 +23,7 @@ const DescriptionObj = {
         "Sanitarios",
         "Vestidores y regaderas",
       ],
-      quantity: 1000,
+      price: 1000,
     },
     {
       entryImg: "/img/hoteles/Hotel-Xcaret/brazalete1.jpg",
@@ -32,7 +34,7 @@ const DescriptionObj = {
         "Sanitarios",
         "Vestidores y regaderas",
       ],
-      quantity: 5599.6,
+      price: 5599.6,
     },
     {
       entryImg: "/img/hoteles/Hotel-Xcaret/brazalete1.jpg",
@@ -43,7 +45,7 @@ const DescriptionObj = {
         "Sanitarios",
         "Vestidores y regaderas",
       ],
-      quantity: 100,
+      price: 100,
     },
     {
       entryImg: "/img/hoteles/Hotel-Xcaret/brazalete1.jpg",
@@ -54,7 +56,7 @@ const DescriptionObj = {
         "Sanitarios",
         "Vestidores y regaderas",
       ],
-      quantity: 5599.6,
+      price: 5599.6,
     },
     {
       entryImg: "/img/hoteles/Hotel-Xcaret/brazalete1.jpg",
@@ -65,7 +67,7 @@ const DescriptionObj = {
         "Sanitarios",
         "Vestidores y regaderas",
       ],
-      quantity: 100,
+      price: 100,
     },
     {
       entryImg: "/img/hoteles/Hotel-Xcaret/brazalete1.jpg",
@@ -76,7 +78,7 @@ const DescriptionObj = {
         "Sanitarios",
         "Vestidores y regaderas",
       ],
-      quantity: 5599.6,
+      price: 5599.6,
     },
   ],
   // Ver en la carpeta /public
@@ -89,11 +91,13 @@ const DescriptionObj = {
 };
 export default function XcaretPark() {
   // Devuelve si el dispositivo es movil 
+  const router = useRouter()
   const { isMobile } = useDeviceDetect();
   // Setea el tipo de columna por el tipo de dispositivo (scroll para las entradas)
   let secondColumnSettings = isMobile ? { paddingTop: "4vh" } : { paddingTop: "4vh", maxHeight:"120vh", overflow:'scroll' }
   // Aqui se hace la petición al endpoint para obtener tarjetas y se mandan al section
   const { entries } = DescriptionObj;
+  const {price} =router.query
   return (
     <div>
       <Header />
@@ -105,7 +109,7 @@ export default function XcaretPark() {
           <Col xs={12} sm={12} md={6} className="pt-4">
             <Container style={secondColumnSettings}> {/* Agregar al style la variable secondColumnSettings */}
               {entries.map((entry,index) => (
-                <Entry key={`tourId-${index}`}{...entry}></Entry>
+                <Entry key={`tourId-${index}`}{...entry} price={price}></Entry>
               ))}
             </Container>
           </Col>

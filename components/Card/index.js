@@ -17,8 +17,12 @@ const CardComponent = ({
   img,
   image,
   url,
+  price,
+  price_from,
   isOffer = false,
 }) => {
+  let pathName = `${isOffer ? "/ofertas" : "/tours"}/${url}`
+  let pricing = isOffer ? price:price_from
   return (
     //Tamaño viste de inicio cards
     <Col xs={12} sm={12} md={12} lg={12} className="mb-4">
@@ -35,7 +39,12 @@ const CardComponent = ({
           <CardText style={{ textAlign: "justify" }}>
             {isOffer ? include : city}
           </CardText>
-          <Link href={`${isOffer ? "/ofertas" : "/tours"}/${url}`}>
+          <Link href={{
+            pathname:pathName,
+            query: { price: pricing },
+
+          }}
+          >
             <Button color="danger">
               <b>Informacion</b>
             </Button>

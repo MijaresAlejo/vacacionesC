@@ -41,7 +41,7 @@ const DescriptionObj = {
         "A 21 km del aeropuerto",
         "WiFi gratuito en todo el hotel",
       ],
-      quantity: 5599.6,
+      price: 5599.6,
     },
   ],
 };

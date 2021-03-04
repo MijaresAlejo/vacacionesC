@@ -9,7 +9,7 @@ class Entry extends Component {
     const {
       entryTitle,
       entryImg,
-      quantity,
+      price,
       access = [],
       isHotel = false,
     } = this.props;
@@ -36,7 +36,7 @@ class Entry extends Component {
           </Col>
         </Row>
 
-        {isHotel ? <HotelAvailability /> : <AvailabilityInput />}
+        {isHotel ? <HotelAvailability price={price}/> : <AvailabilityInput price={price}/>}
       </Card>
     );
   }

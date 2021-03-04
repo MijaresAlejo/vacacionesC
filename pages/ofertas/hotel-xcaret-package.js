@@ -33,7 +33,7 @@ const DescriptionObj = {
       entryImg: "/img/hoteles/Hotel-Xcaret/brazalete1.jpg",
       entryTitle: "Entrada Xcaret plus",
       access: ["5 Diamantes", "Show Nocturno de Xcaret"],
-      quantity: 5599.6,
+      price: 5599.6,
     },
   ],
 };

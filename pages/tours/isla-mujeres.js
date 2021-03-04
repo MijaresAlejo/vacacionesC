@@ -20,7 +20,7 @@ const DescriptionObj = {
         "Sanitarios",
         "Vestidores y regaderas",
       ],
-      quantity: 1000,
+      price: 1000,
     },
     {
       entryImg: "/img/tours/isla-mujeres/braza.jpg",
@@ -31,7 +31,7 @@ const DescriptionObj = {
         "Sanitarios",
         "Vestidores y regaderas",
       ],
-      quantity: 5599.6,
+      price: 5599.6,
     },
     {
       entryImg: "/img/tours/isla-mujeres/braza.jpg",
@@ -42,7 +42,7 @@ const DescriptionObj = {
         "Sanitarios",
         "Vestidores y regaderas",
       ],
-      quantity: 100,
+      price: 100,
     },
     {
       entryImg: "/img/tours/isla-mujeres/braza.jpg",
@@ -53,7 +53,7 @@ const DescriptionObj = {
         "Sanitarios",
         "Vestidores y regaderas",
       ],
-      quantity: 5599.6,
+      price: 5599.6,
     },
     {
       entryImg: "/img/tours/isla-mujeres/braza.jpg",
@@ -64,7 +64,7 @@ const DescriptionObj = {
         "Sanitarios",
         "Vestidores y regaderas",
       ],
-      quantity: 100,
+      price: 100,
     },
     {
       entryImg: "/img/tours/isla-mujeres/braza.jpg",
@@ -75,7 +75,7 @@ const DescriptionObj = {
         "Sanitarios",
         "Vestidores y regaderas",
       ],
-      quantity: 5599.6,
+      price: 5599.6,
     },
   ],
   gallery: [

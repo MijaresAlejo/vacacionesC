@@ -31,7 +31,7 @@ const DescriptionObj = {
         " Piscina cubierta / aire libre",
         "Wi-Fi gratis",
       ],
-      quantity: 5599.6,
+      price: 5599.6,
     },
   ],
 };
