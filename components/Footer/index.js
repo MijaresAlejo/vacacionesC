@@ -90,7 +90,7 @@ class Footer extends Component {
                     <b>
                       {" "}
                       <a
-                        class="text-white"
+                        className="text-white"
                         href="#"
                         style={{ fontSize: "18px" }}
                       >
@@ -98,10 +98,10 @@ class Footer extends Component {
                       </a>
                     </b>
                   </div>
-                  <div class="footer-links font-weight">
+                  <div className="footer-links font-weight">
                     <b>
                       <a
-                        class="text-white"
+                        className="text-white"
                         href="#"
                         style={{ fontSize: "18px" }}
                       >
@@ -110,11 +110,11 @@ class Footer extends Component {
                     </b>
                   </div>
 
-                  <div class="footer-links font-weight">
+                  <div className="footer-links font-weight">
                     <b>
                       {" "}
                       <a
-                        class="text-white"
+                        className="text-white"
                         href="#"
                         style={{ fontSize: "18px" }}
                       >
@@ -200,40 +200,44 @@ class Footer extends Component {
                 <div>
                   <p>
                     <i className="fa fa-phone  mx-2 "></i>
-                    <a href="9982430489">+52 99-81-07-12-34</a>
-                    <p>LLamanos si tienes alguna duda.</p>
+                    <a href="9982430489">+52 99-81-07-12-34</a><br />
+                    LLamanos si tienes alguna duda.
                   </p>
                   <p>
                     <i className="fa fa-envelope  mx-2"></i>
                     <a href="hola@vacacionescancun.com">
                       hola@vacacionescancun.com
-                    </a>
-                    <p>Contactanos por email</p>
+                    </a><br />
+                    Contactanos por email
                   </p>
                   <p className="text-white">
                     {" "}
-                    <i className="fa fa-map-marker mx-2 "></i>
+                    <i className="fa fa-map-marker mx-2 "></i><br />
                     Av.Bonampak Sm 6,Mz 1 Lote , Cancún Quintana Roo,Mexico.
                   </p>
                 </div>
 
                 <div className="socials social-links">
                   <p>Siguenos en nuestras redes sociales</p>
-                  <a>
+                  <a
+                    className="text-white mr-4"
+                    style={{fontSize:"24px"}}
+                    href="https://www.instagram.com/vacaciones_cun/"
+                  >
                     <i
-                      class="fab fa-facebook"
-                      href="https://www.instagram.com/vacaciones_cun/"
+                      className="fab fa-facebook"
                     ></i>
                   </a>
 
-                  <a>
+                  <a
+                    className="text-white mr-4"
+                    style={{fontSize:"24px"}}
+                    href="https://www.instagram.com/vacaciones_cun/"
+                  >
                     <i
-                      class="fab fa-instagram"
-                      href="https://www.instagram.com/vacaciones_cun/"
+                      className="fab fa-instagram"
                     ></i>
                   </a>
-                  <i class="fab fa-youtube"></i>
-                  <a></a>
                 </div>
                 <p className="text-light py-4 mb-4">
                   &copy;2021 Vacaciones Cancún.
