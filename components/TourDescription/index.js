@@ -1,7 +1,10 @@
 import { Container } from "reactstrap";
 import Slider from "../../components/Slider";
+import ReadMore from '../SeeMore'
+import useDeviceDetect from "../DetectDevice";
 export default function TourDescription(props) {
   const { tourTitle, tourDescription, tourVideo, gallery = [] } = props;
+  const { isMobile } = useDeviceDetect();
   return (
     <Container className="pt-4">
       <center className="mb-4">
@@ -15,8 +18,13 @@ export default function TourDescription(props) {
       </Slider>
       {/* Galeria termina */}
 
-      {/* Descripcion inicia */}
-      <p className="mt-4">{tourDescription}</p>
+      {/* Descripcion inicia Validar si es movil*/}
+      {isMobile ? (<ReadMore fullText={tourDescription} />) : (
+        <Container fluid className="mb-4">
+          <p className="mt-4">{tourDescription}</p>
+        </Container>
+      )}
+
       {/* Descripcion termina */}
 
       {/* Video inicia */}

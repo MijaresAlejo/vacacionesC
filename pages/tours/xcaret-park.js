@@ -3,6 +3,7 @@ import Footer from "../../components/Footer";
 import TourDescription from "../../components/TourDescription";
 import Entry from "../../components/Entry";
 import { Container, Row, Col } from "reactstrap";
+import useDeviceDetect from "../../components/DetectDevice";
 const DescriptionObj = {
   tourTitle: "Parque Xcaret",
   tourDescription:
@@ -85,6 +86,8 @@ const DescriptionObj = {
   ],
 };
 export default function XcaretPark() {
+  const { isMobile } = useDeviceDetect();
+  let secondColumnSettings = isMobile ? { paddingTop: "4vh" } : { paddingTop: "4vh", maxHeight:"120vh", overflow:'scroll' }
   // Aqui se hace la petición al endpoint para obtener tarjetas y se mandan al section
   const { entries } = DescriptionObj;
   return (
@@ -95,10 +98,10 @@ export default function XcaretPark() {
           <Col xs={12} sm={12} md={6} className="">
             <TourDescription {...DescriptionObj}></TourDescription>
           </Col>
-          <Col xs={12} sm={12} md={6} className="pt-4">
-            <Container style={{ paddingTop: "4vh" }}>
-              {entries.map((entry) => (
-                <Entry {...entry}></Entry>
+          <Col xs={12} sm={12} md={6} className="pt-4" style={{}}>
+            <Container style={secondColumnSettings}>
+              {entries.map((entry,index) => (
+                <Entry key={`tourId-${index}`}{...entry}></Entry>
               ))}
             </Container>
           </Col>
