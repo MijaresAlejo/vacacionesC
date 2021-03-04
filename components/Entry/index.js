@@ -17,13 +17,14 @@ class Entry extends Component {
     return (
       <Card className="mb-4">
         <Row>
-          <Col xs={6} md={6} lg={6}>
+          <Col xs={12} md={6} lg={6}>
             <CardImg
               src={entryImg}
-              style={{ height: "200px", borderRadius: "60px" }}
+              className="entry-image-responsive"
+              style={{ borderRadius: "25px" }}
             />
           </Col>
-          <Col xs={6} md={6} lg={6} className="pt-4">
+          <Col xs={12} md={6} lg={6} className="pt-4">
             <strong>{entryTitle}</strong>
             <ul style={styles.AccessList}>
               {access.map((individualAccess) => (

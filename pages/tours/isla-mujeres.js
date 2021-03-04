@@ -9,6 +9,7 @@ const DescriptionObj = {
   tourDescription:
     "Disfruta de un día espectacular en el Mar Caribe navegando desde Cancún a Isla Mujeres abordo de un asombroso catamarán con barra libre y mucha diversión. La Isla Mujeres es una isla mexicana en el mar Caribe, a 13 km de la costa de Cancún. Es un destino vacacional conocido por sus playas, como la Playa Norte, complejos turísticos y también por el esnórquel y el buceo en los arrecifes de coral circundantes.",
   tourVideo: "https://www.youtube.com/embed/ArsHZr--DEA",
+
   entries: [
     {
       entryImg: "/img/tours/isla-mujeres/braza.jpg",
@@ -77,7 +78,14 @@ const DescriptionObj = {
       quantity: 5599.6,
     },
   ],
+  gallery: [
+    "/img/tours/isla-mujeres/isla1.jpg",
+    "/img/tours/isla-mujeres/isla2.jpg",
+    "/img/tours/isla-mujeres/isla3.jpg",
+    "/img/tours/isla-mujeres/isla4.jpg",
+  ],
 };
+
 export default function IslaPark() {
   // Aqui se hace la petición al endpoint para obtener tarjetas y se mandan al section
   const { entries } = DescriptionObj;

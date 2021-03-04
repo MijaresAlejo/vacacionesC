@@ -5,25 +5,24 @@ import Entry from "../../components/Entry";
 import { Container, Row, Col } from "reactstrap";
 
 const DescriptionObj = {
-  tourTitle: "Hotel The Reef 28",
+  tourTitle: " Hotel Seadust Cancún Family Resort",
   tourDescription: (
     <p style={{ textAlign: "justify" }}>
-      Este resort solo para adultos se encuentra a 1 minuto a pie de las
-      tiendas, los bares y las galerías de la Quinta Avenida, a 3 de la playa
-      caribeña Mamita y a 55 km del aeropuerto internacional de Cancún.
-      <p>
-        Las habitaciones son elegantes y cuentan con zona de estar, baño de
-        mármol, Wi‑Fi gratis, televisión de pantalla plana, mininevera,
-        microondas y cafetera. Las opciones superiores incluyen zona de estar
-        independiente con comedor, sofá cama y bañera de hidromasaje en la
-        habitación.
-      </p>
+      Este lujoso resort de playa con todo incluido se encuentra a 13 minutos a
+      pie del Museo Maya de Cancún y a 9 km del parque acuático Wet'n Wild
+      Cancún. Las habitaciones, modernas y refinadas, tienen una decoración
+      tropical, ventiladores en el techo, televisiones de pantalla plana y
+      balcones con vistas al mar. Las habitaciones superiores también incluyen
+      bañeras de hidromasaje para 2 personas, cafeteras y cestas de frutas,
+      mientras que las suites cuentan con jacuzzis. Por su parte, las
+      habitaciones familiares tienen literas y camas corredizas. Servicio de
+      habitaciones disponible.
     </p>
   ),
-  tourVideo: "https://www.youtube.com/embed/ywgV4DlwD8Y",
+  tourVideo: "https://www.youtube.com/embed/xSAsz69nIsw",
   entries: [
     {
-      entryImg: "/img/hoteles/Hotel-Thereef28/reef1.jpg",
+      entryImg: "/img/hoteles/Hotel-Seadust/brazalete.jpg",
       entryTitle: "Entrada plus",
       access: [
         "Desayuno incluido",
@@ -35,7 +34,7 @@ const DescriptionObj = {
     },
   ],
 };
-export default function ThereefHotel() {
+export default function SeadustHotel() {
   // Aqui se hace la petición al endpoint para obtener tarjetas y se mandan al section
   const { entries } = DescriptionObj;
   return (

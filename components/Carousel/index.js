@@ -60,7 +60,7 @@ const CarouselComponent = (props) => {
         <img
           src={item.src}
           alt={item.altText}
-          style={{ width: "100%", height: "60vh" }}
+          style={{ width: "100%", height: "65vh" }}
         />
         <CarouselCaption
           captionText={item.caption}

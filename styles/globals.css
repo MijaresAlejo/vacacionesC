@@ -15,17 +15,26 @@ a {
   box-sizing: border-box;
 }
 /* mobile*/
-@media(max-width:600px){
+
+@media (max-width: 600px) {
   .ToogleTooltip {
     background-color: #fff !important;
     position: absolute !important;
     padding: 15px 15px !important;
     z-index: 99 !important;
     border: 1px solid red !important;
-    left:-30px;
+    left: -30px;
+  }
+  .entry-image-responsive {
+    height: 30vh;
+    width: 25vh;
   }
 }
 /* desktop*/
+.entry-image-responsive {
+  height: 25 vh;
+}
+
 .ToogleTooltip {
   background-color: #fff !important;
   position: absolute !important;
@@ -33,14 +42,24 @@ a {
   z-index: 99 !important;
   border: 1px solid red !important;
 }
-.tooltip-Number{
-  width:50px;
+.tooltip-Number {
+  width: 50px;
   border: 1px solid #ccc;
   text-align: center;
 }
 .no-radius-1 {
-  border-radius:5px 0 0 5px !important;
+  border-radius: 5px 0 0 5px !important;
 }
 .no-radius-2 {
-  border-radius:0 5px 5px 0 !important;
+  border-radius: 0 5px 5px 0 !important;
+}
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide {
+  height: inherit !important;
+}
+.slide {
+  height: 100%;
 }

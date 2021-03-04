@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Container, CardGroup } from "reactstrap";
-import {getAllPackages, getPopularTours} from '../../services/api'
+import { getAllPackages, getPopularTours } from "../../services/api";
 import CardComponent from "../Card";
+import Slider from "../Slider";
 // import miImagen from '../../images/miimagen.png'
 class Section extends Component {
   constructor(props) {
@@ -12,14 +13,14 @@ class Section extends Component {
   }
   async componentDidMount() {
     const { endpoint } = this.props;
-    switch(endpoint) {
-      case 'bestOffers':
-        let bestOffers = await getAllPackages() 
-        this.setState({cards:bestOffers})
+    switch (endpoint) {
+      case "bestOffers":
+        let bestOffers = await getAllPackages();
+        this.setState({ cards: bestOffers });
         break;
-      case 'popularTours':
-        let popularTours = await getPopularTours() 
-        this.setState({cards:popularTours})
+      case "popularTours":
+        let popularTours = await getPopularTours();
+        this.setState({ cards: popularTours });
         break;
     }
     /*
@@ -124,16 +125,12 @@ class Section extends Component {
           <h2>{sectionTitle}</h2>
           <p>{sectionDescription}</p>
         </div>
-        <CardGroup>
+
+        <Slider slidesToShow={4} fluid={false}>
           {cards.map((Card) => (
-                <CardComponent
-                  key={Card.url}
-                  isOffer={isOffer}
-                  {...Card}
-                />
-              ))
-            }
-        </CardGroup>
+            <CardComponent key={Card.url} isOffer={isOffer} {...Card} />
+          ))}
+        </Slider>
       </Container>
     );
   }

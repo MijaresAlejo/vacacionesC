@@ -20,21 +20,22 @@ const CardComponent = ({
   isOffer = false,
 }) => {
   return (
-    <Col xs={12} sm={12} md={6} lg={3} className="mb-4">
+    //Tamaño viste de inicio cards
+    <Col xs={12} sm={12} md={12} lg={12} className="mb-4">
       <Card className="h-100">
         <CardImg
           top
           width="100%"
-          src={isOffer ? image: img}
+          src={isOffer ? image : img}
           alt="Card image cap"
           style={styles.image}
         />
         <CardBody>
           <CardTitle tag="h5">{name}</CardTitle>
-            <CardText style={{ textAlign: "justify" }}>
-              {isOffer? include: city}
-            </CardText>
-          <Link href={`${isOffer ? '/ofertas':'/tours'}/${url}`}>
+          <CardText style={{ textAlign: "justify" }}>
+            {isOffer ? include : city}
+          </CardText>
+          <Link href={`${isOffer ? "/ofertas" : "/tours"}/${url}`}>
             <Button color="danger">
               <b>Informacion</b>
             </Button>
