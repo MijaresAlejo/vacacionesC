@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container, CardGroup } from "reactstrap";
 import { getAllPackages, getPopularTours } from "../../services/api";
+import { formatYmd } from '../../services/utils';
 import CardComponent from "../Card";
 import Slider from "../Slider";
 // import miImagen from '../../images/miimagen.png'
@@ -11,6 +12,7 @@ class Section extends Component {
       cards: [],
     };
   }
+
   async componentDidMount() {
     const { endpoint } = this.props;
     switch (endpoint) {
@@ -19,7 +21,14 @@ class Section extends Component {
         this.setState({ cards: bestOffers });
         break;
       case "popularTours":
-        let popularTours = await getPopularTours();
+        const params = {
+          "date": formatYmd(new Date()), //"2021-03-20"
+          "adults": 1,
+          "children": 0,
+          "state": "QR",
+          "lang": "es"
+        }
+        let popularTours = await getPopularTours(params);
         this.setState({ cards: popularTours });
         break;
     }
@@ -117,6 +126,7 @@ class Section extends Component {
       sectionTitle = "",
       sectionDescription = "",
       isOffer = false,
+      isLanding = false,
     } = this.props;
     const { cards } = this.state;
     return (
@@ -125,12 +135,19 @@ class Section extends Component {
           <h2>{sectionTitle}</h2>
           <p>{sectionDescription}</p>
         </div>
-
-        <Slider slidesToShow={4} fluid={false}>
-          {cards.map((Card) => (
-            <CardComponent key={Card.url} isOffer={isOffer} {...Card} />
-          ))}
-        </Slider>
+        {isLanding ? (
+          <CardGroup>
+            {cards.map((Card) => (
+              <CardComponent key={Card.url} isOffer={isOffer} {...Card} isLanding={isLanding}/>
+            ))}
+          </CardGroup>
+        ) : (
+          <Slider slidesToShow={4} fluid={false}>
+            {cards.map((Card) => (
+              <CardComponent key={Card.url} isOffer={isOffer} {...Card} />
+            ))}
+          </Slider>
+        )}
       </Container>
     );
   }

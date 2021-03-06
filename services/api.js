@@ -23,12 +23,20 @@ async function getAllPackages() {
   } = await axios.get("promotions/packages/en");
   return message;
 }
-async function getPopularTours() {
+async function getPopularTours(params) {
   // setup default headers
   await getSignature();
   const {
     data: { message },
-  } = await axios.get("promotions/populartours/en");
+  } = await axios.post("activity-home/activity-list",params);
+  return message;
+}
+async function getTourDetails(params) {
+  // setup default headers
+  await getSignature();
+  const {
+    data: { message },
+  } = await axios.post("activity-home/activity",params);
   return message;
 }
 /*
@@ -40,4 +48,4 @@ async function getHotels(id){
   return message;
 }
 */
-export { getAllPackages, getPopularTours };
+export { getAllPackages, getPopularTours, getTourDetails};

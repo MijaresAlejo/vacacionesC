@@ -10,6 +10,7 @@ class Entry extends Component {
       entryTitle,
       entryImg,
       price,
+      price2,
       access = [],
       isHotel = false,
     } = this.props;
@@ -36,7 +37,7 @@ class Entry extends Component {
           </Col>
         </Row>
 
-        {isHotel ? <HotelAvailability price={price}/> : <AvailabilityInput price={price}/>}
+        {isHotel ? <HotelAvailability price={price}/> : <AvailabilityInput price={price} price2={price2}/>}
       </Card>
     );
   }

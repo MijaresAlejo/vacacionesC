@@ -11,38 +11,36 @@ import {
 import Link from "next/link";
 
 const CardComponent = ({
-  name,
+  name_tour,
   include,
   city,
-  img,
+  image_tour,
   image,
   url,
   price,
   price_from,
   isOffer = false,
+  isLanding = false,
 }) => {
   let pathName = `${isOffer ? "/ofertas" : "/tours"}/${url}`
-  let pricing = isOffer ? price:price_from
   return (
     //Tamaño viste de inicio cards
-    <Col xs={12} sm={12} md={12} lg={12} className="mb-4">
+    <Col xs={12} sm={12} md={isLanding ? 3:12} lg={isLanding ? 3:12} className="mb-4">
       <Card className="h-100">
         <CardImg
           top
           width="100%"
-          src={isOffer ? image : img}
+          src={isOffer ? image : image_tour}
           alt="Card image cap"
           style={styles.image}
         />
         <CardBody>
-          <CardTitle tag="h5">{name}</CardTitle>
+          <CardTitle tag="h5">{name_tour}</CardTitle>
           <CardText style={{ textAlign: "justify" }}>
             {isOffer ? include : city}
           </CardText>
           <Link href={{
             pathname:pathName,
-            query: { price: pricing },
-
           }}
           >
             <Button color="danger">

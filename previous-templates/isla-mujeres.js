@@ -1,7 +1,7 @@
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import TourDescription from "../../components/TourDescription";
-import Entry from "../../components/Entry";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import TourDescription from "../components/TourDescription";
+import Entry from "../components/Entry";
 import { Container, Row, Col } from "reactstrap";
 
 const DescriptionObj = {

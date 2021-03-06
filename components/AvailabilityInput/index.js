@@ -15,28 +15,37 @@ class AvailabilityInput extends Component {
       toggle: false,
       adults: 1,
       childs: 0,
+      totalPrice: this.props.price
     };
     this.toggle = this.toggle.bind(this);
+    this.calculate = this.calculate.bind(this);
     this.incrementAdults = this.incrementAdults.bind(this);
     this.decrementAdults = this.decrementAdults.bind(this);
     this.incrementChilds = this.incrementChilds.bind(this);
     this.decrementChilds = this.decrementChilds.bind(this);
   }
 
+  calculate(){
+    let totalPrice = 0;
+    const { price, price2 } = this.props;
+    const { adults, childs} = this.state;
+    totalPrice = price*adults + price2 * childs;
+    this.setState({totalPrice:totalPrice})
+  }
   incrementAdults() {
-    this.setState({ adults: this.state.adults + 1 });
+    this.setState({ adults: this.state.adults + 1 }, this.calculate);
   }
   decrementAdults() {
     this.state.adults > 1
-      ? this.setState({ adults: this.state.adults - 1 })
+      ? this.setState({ adults: this.state.adults - 1 },this.calculate)
       : false;
   }
   incrementChilds() {
-    this.setState({ childs: this.state.childs + 1 });
+    this.setState({ childs: this.state.childs + 1 }, this.calculate);
   }
   decrementChilds() {
     this.state.childs > 1
-      ? this.setState({ childs: this.state.childs - 1 })
+      ? this.setState({ childs: this.state.childs - 1 }, this.calculate)
       : false;
   }
 
@@ -45,7 +54,8 @@ class AvailabilityInput extends Component {
   }
 
   render() {
-    const {price} = this.props;
+    // adult and child price
+    const {totalPrice} = this.state;
     return (
       <>
         <Row className="pl-2 pr-2 pt-2">
@@ -135,7 +145,7 @@ class AvailabilityInput extends Component {
         <Row className="pl-2 pr-2 pb-4">
           <Col xs={12} md={12} lg={12}>
             <Button color="info" className="col-sm-10 offset-sm-1">
-              Reservar {price>0 ? '$'+Number(price).toFixed(2):''}
+              Reservar {totalPrice>0 ? '$'+Number(totalPrice).toFixed(2):''}
             </Button>
           </Col>
         </Row>
